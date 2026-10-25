@@ -70,6 +70,7 @@ play_again = "yes"
 
 while play_again == "yes":
     score = 0
+    streak = 0
     random.shuffle(questions)
 
     for question in questions:
@@ -88,6 +89,7 @@ while play_again == "yes":
         except TimeoutOccurred:
             print("\n⏰ Time's up!") 
             print("Correct answer:", question["answer"]) 
+            streak = 0
             continue     
                 
         while user_input not in ["1", "2", "3", "4"]:
@@ -99,16 +101,24 @@ while play_again == "yes":
         if user_input == str(correct_number):
             print("Correct!!")
             score += 1
+            streak += 1
+            print(f"🔥 Current streak: {streak}")
+            if streak==3:
+                print("🏆 Achievement Unlocked: 3 in a Row!")
+            if streak==5:
+                print("🥇 Achievement Unlocked: Quiz Master!")    
             print(question["explanation"])
         else:
             print("Incorrect!")
             print("Correct answer:", question["answer"])
+            streak = 0
 
     # Outside the FOR loop
     print(f"\nYour final score: {score}/{len(questions)}")
 
     percent = (score / len(questions)) * 100
     print(f"Percentage: {percent:.2f}%")
+    print(f"🔥 Final streak: {streak}")
 
     play_again = input(
         "Do you want to play again? (yes/no): "
