@@ -102,11 +102,14 @@ while play_again == "yes":
             print("Correct!!")
             score += 1
             streak += 1
+            achievements = []
             print(f"🔥 Current streak: {streak}")
             if streak==3:
                 print("🏆 Achievement Unlocked: 3 in a Row!")
+                achievements.append("3 in a Row")
             if streak==5:
-                print("🥇 Achievement Unlocked: Quiz Master!")    
+                print("🥇 Achievement Unlocked: Quiz Master!") 
+                achievements.append("Quiz Master")   
             print(question["explanation"])
         else:
             print("Incorrect!")
