@@ -1,6 +1,6 @@
 
 import random
-
+from inputimeout import inputimeout,TimeoutOccurred
 questions = [
 {
     "question": "Which data type stores key-value pairs in Python?",
@@ -79,8 +79,16 @@ while play_again == "yes":
         for index, option in enumerate(question["options"]):
             print(f"{index + 1}. {option}")
 
-        user_input = input("Enter choice (1-4): ")
-
+                
+        try:
+            user_input=inputimeout(
+                prompt="Enter choice (1-4). You have 10 seconds: ",
+                timeout=10
+            )  
+        except TimeoutOccurred:
+            print("\n⏰ Time's up!")  
+            continue     
+                
         while user_input not in ["1", "2", "3", "4"]:
             print("Invalid choice! Try again.")
             user_input = input("Enter choice (1-4): ")
