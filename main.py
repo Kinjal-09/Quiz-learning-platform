@@ -122,6 +122,13 @@ while play_again == "yes":
     percent = (score / len(questions)) * 100
     print(f"Percentage: {percent:.2f}%")
     print(f"🔥 Final streak: {streak}")
+    print("\n🏆 Your Achievements:")
+
+    if achievements:
+        for achievement in achievements:
+            print("⭐", achievement)
+    else:
+        print("No achievements unlocked this time. Keep trying!")
 
     play_again = input(
         "Do you want to play again? (yes/no): "
