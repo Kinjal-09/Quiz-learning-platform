@@ -86,7 +86,8 @@ while play_again == "yes":
                 timeout=10
             )  
         except TimeoutOccurred:
-            print("\n⏰ Time's up!")  
+            print("\n⏰ Time's up!") 
+            print("Correct answer:", question["answer"]) 
             continue     
                 
         while user_input not in ["1", "2", "3", "4"]:
@@ -114,3 +115,4 @@ while play_again == "yes":
     ).strip().lower()
 
 print("Thanks for playing! 🎉")
+
