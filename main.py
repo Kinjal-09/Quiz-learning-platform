@@ -71,6 +71,7 @@ play_again = "yes"
 while play_again == "yes":
     score = 0
     streak = 0
+    achievements = []
     random.shuffle(questions)
 
     for question in questions:
@@ -102,7 +103,7 @@ while play_again == "yes":
             print("Correct!!")
             score += 1
             streak += 1
-            achievements = []
+            
             print(f"🔥 Current streak: {streak}")
             if streak==3:
                 print("🏆 Achievement Unlocked: 3 in a Row!")
